@@ -1,4 +1,3 @@
-# reference: https://www.youtube.com/watch?v=xiBXspqs0dk&list=PLtqF5YXg7GLmCvTswG32NqQypOuYkPRUE&index=7
 import streamlit as st
 import pandas as pd
 import base64
@@ -7,7 +6,6 @@ import seaborn as sns
 import numpy as np
 import datetime, lxml
 
-# reference: https://docs.streamlit.io/knowledge-base/using-streamlit/how-hide-hamburger-menu-app
 hide_streamlit_style = """
             <style>
             #MainMenu {visibility: hidden;}
@@ -67,7 +65,6 @@ st.write('Data Dimension: ' + str(df_selected_team.shape[0]) + ' rows and ' + st
 st.dataframe(df_selected_team)
 
 # Download NBA player stats data
-# https://discuss.streamlit.io/t/how-to-download-file-in-streamlit/1806
 def filedownload(df):
     csv = df.to_csv(index=False)
     b64 = base64.b64encode(csv.encode()).decode()  # strings <-> bytes conversions
@@ -89,4 +86,3 @@ st.markdown(filedownload(df_selected_team), unsafe_allow_html=True)
 #         f, ax = plt.subplots(figsize=(7, 5))
 #         ax = sns.heatmap(corr, mask=mask, vmax=1, square=True)
 #     st.pyplot()
-    
